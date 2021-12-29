@@ -1,4 +1,4 @@
-# AWS Single EC2 instance
+# AWS Single EC2 instance with a VPC
 
 This project aims to deploy a sample website in a one EC2 instance.
 
