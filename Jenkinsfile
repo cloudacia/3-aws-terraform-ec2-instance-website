@@ -32,12 +32,6 @@ pipeline {
           }
         }
 
-        stage('plan') {
-          steps{
-            sh 'terraform plan -input=false -out tfplan -lock=false'
-          }
-        }
-
         stage('tfsec') {
 
           steps {
@@ -46,11 +40,17 @@ pipeline {
           }
         }
 
-        //stage('apply') {
-        //  steps{
-        //    sh 'terraform apply -auto-approve'
-        //  }
-        //}
+        stage('plan') {
+          steps{
+            sh 'terraform plan -input=false -out tfplan -lock=false'
+          }
+        }
+
+        stage('apply') {
+          steps{
+            sh 'terraform apply -auto-approve'
+          }
+        }
 
         stage('Destroy') {
             when {
