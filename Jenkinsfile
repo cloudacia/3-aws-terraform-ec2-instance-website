@@ -32,13 +32,13 @@ pipeline {
           }
         }
 
-        stage('tfsec') {
+        //stage('tfsec') {
 
-          steps {
-            sh 'docker pull aquasec/tfsec:latest'
-            sh 'docker run --rm -v "$(pwd):/src" aquasec/tfsec /src -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr --no-color'
-          }
-        }
+          //steps {
+            //sh 'docker pull aquasec/tfsec:latest'
+            //sh 'docker run --rm -v "$(pwd):/src" aquasec/tfsec /src -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr --no-color'
+          //}
+        //}
 
         stage('plan') {
           steps{
