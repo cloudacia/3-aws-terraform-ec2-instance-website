@@ -36,7 +36,7 @@ pipeline {
 
           steps {
             sh 'docker pull aquasec/tfsec:latest'
-            sh 'docker run --rm -v "$(pwd):/src" aquasec/tfsec /src -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr --no-color'
+            sh 'docker run --rm -v "$(pwd):/src" aquasec/tfsec /src -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr,aws-ec2-enforce-http-token-imds --no-color'
           }
         }
 
