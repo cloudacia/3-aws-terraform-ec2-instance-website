@@ -4,24 +4,19 @@ resource "aws_security_group" "web_and_ssh" {
   description = "Allow web incgress trafic"
   vpc_id      = aws_vpc.big_data.id
 
+
   # http port
   ingress {
+    description = "Allow inbound HTTP traffic"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["142.126.0.0/16"]
   }
 
   # https port
   ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  # https port
-  ingress {
+    description = "Allow inbound SSH traffic"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -30,6 +25,7 @@ resource "aws_security_group" "web_and_ssh" {
 
   # Open access to public network
   egress {
+    description = "Allow outbound ANY traffic"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"

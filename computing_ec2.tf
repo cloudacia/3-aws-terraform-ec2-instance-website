@@ -13,6 +13,15 @@ resource "aws_instance" "web01" {
   user_data                   = filebase64("script/script.sh")
   associate_public_ip_address = true
 
+  root_block_device {
+    delete_on_termination = true
+    encrypted             = true
+  }
+
+  metadata_options {
+    http_tokens = "required"
+  }
+
   tags = {
     Name = "first-name_last-name"
   }
