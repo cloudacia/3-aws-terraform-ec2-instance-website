@@ -23,6 +23,6 @@ resource "aws_instance" "web01" {
   }
 
   tags = {
-    Name = "first-name_last-name"
+    Name = "cloudacia"
   }
 }

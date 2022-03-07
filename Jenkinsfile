@@ -38,22 +38,19 @@ pipeline {
           }
         }
 
-        //stage('tfsec') {
-        //  agent {
-        //    docker {
-        //      image 'aquasec/tfsec:latest'
-        //    }
-        //  }
-        //  steps {
-        //    sh 'tfsec . -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr'
-        //  }
-        //}
+        stage('tfsec') {
 
-        stage('apply') {
-          steps{
-            sh 'terraform apply -auto-approve'
+          steps {
+            sh 'docker pull aquasec/tfsec:latest'
+            sh 'docker run --rm -it -v "$(pwd):/src" aquasec/tfsec /src -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr'
           }
         }
+
+        //stage('apply') {
+        //  steps{
+        //    sh 'terraform apply -auto-approve'
+        //  }
+        //}
 
         stage('Destroy') {
             when {

@@ -11,7 +11,7 @@ resource "aws_security_group" "web_and_ssh" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["142.126.0.0/16"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   # https port
