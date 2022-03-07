@@ -38,16 +38,16 @@ pipeline {
           }
         }
 
-        stage('tfsec') {
-          agent {
-            docker {
-              image 'aquasec/tfsec:latest'
-            }
-          }
-          steps {
-            sh 'tfsec . -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr'
-          }
-        }
+        //stage('tfsec') {
+        //  agent {
+        //    docker {
+        //      image 'aquasec/tfsec:latest'
+        //    }
+        //  }
+        //  steps {
+        //    sh 'tfsec . -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr'
+        //  }
+        //}
 
         stage('apply') {
           steps{
