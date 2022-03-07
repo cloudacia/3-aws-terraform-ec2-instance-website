@@ -45,7 +45,7 @@ pipeline {
             }
           }
           steps {
-            tfsec . -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr
+            sh 'tfsec . -e aws-vpc-no-public-ingress-sgr,aws-vpc-no-public-egress-sgr'
           }
         }
 
