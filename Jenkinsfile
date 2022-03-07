@@ -22,13 +22,13 @@ pipeline {
 
         stage('init') {
             steps {
-                sh 'terraform init -input=false'
+                sh 'terraform init -input=false -no-color'
             }
         }
 
         stage('validate') {
           steps{
-            sh 'terraform validate'
+            sh 'terraform validate -no-color'
           }
         }
 
