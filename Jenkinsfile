@@ -53,7 +53,7 @@ pipeline {
           }
         }
 
-        stage('infracos') {
+        stage('infracost') {
           steps {
             sh 'docker pull infracost/infracost'
             sh 'docker run -v "$(pwd):/src" -e INFRACOST_API_KEY=${INFRACOST_API_KEY} infracost/infracost breakdown --path /src'
