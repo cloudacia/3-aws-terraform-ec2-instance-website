@@ -42,13 +42,13 @@ pipeline {
 
         stage('plan') {
           steps{
-            sh 'terraform plan -input=false -out tfplan -lock=false'
+            sh 'terraform plan -input=false -out tfplan -lock=false -no-color'
           }
         }
 
         stage('apply') {
           steps{
-            sh 'terraform apply -auto-approve'
+            sh 'terraform apply -auto-approve -no-color'
           }
         }
 
