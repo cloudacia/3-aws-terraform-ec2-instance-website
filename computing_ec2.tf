@@ -19,7 +19,8 @@ resource "aws_instance" "web01" {
   }
 
   metadata_options {
-    http_tokens = "required"
+    http_endpoint = "enabled"
+    http_tokens   = "required"
   }
 
   tags = {
