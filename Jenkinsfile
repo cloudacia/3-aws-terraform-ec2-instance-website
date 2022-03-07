@@ -11,6 +11,7 @@ pipeline {
      environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        INFRACOST_API_KEY     = credentials('INFRACOST_API_KEY')
     }
 
     stages {
@@ -49,6 +50,13 @@ pipeline {
         stage('apply') {
           steps{
             sh 'terraform apply -auto-approve -no-color'
+          }
+        }
+
+        stage('infracos') {
+          steps {
+            sh 'docker pull infracost/infracost'
+            sh 'docker run -v "$(pwd):/src" -e INFRACOST_API_KEY=${INFRACOST_API_KEY} infracost/infracost breakdown --path /src'
           }
         }
 
