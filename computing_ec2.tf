@@ -15,13 +15,13 @@ resource "aws_instance" "web01" {
 
   root_block_device {
     delete_on_termination = true
-    #encrypted             = true
+    encrypted             = true
   }
 
-  metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "required"
-  }
+  #metadata_options {
+  #  http_endpoint = "enabled"
+  #  http_tokens   = "required"
+  #}
 
   tags = {
     Name = "cloudacia"
