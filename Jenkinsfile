@@ -58,7 +58,7 @@ pipeline {
             }
 
         steps {
-           sh "terraform destroy --auto-approve"
+           sh "terraform destroy --auto-approve -no-color"
           }
         }
       }
