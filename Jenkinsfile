@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-              git "https://github.com/cloudacia/1-aws-terraform-load-balanced-website.git"
+              git "https://github.com/cloudacia/3-aws-terraform-ec2-instance-website.git"
               }
             }
 
