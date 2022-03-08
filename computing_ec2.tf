@@ -18,11 +18,6 @@ resource "aws_instance" "web01" {
     encrypted             = true
   }
 
-  metadata_options {
-    http_endpoint = "enabled"
-    http_tokens   = "optional"
-  }
-
   tags = {
     Name = "cloudacia"
   }
